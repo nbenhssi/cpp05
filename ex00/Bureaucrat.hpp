@@ -6,7 +6,7 @@
 /*   By: nbenhssi <nbenhssi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 15:16:26 by nbenhssi          #+#    #+#             */
-/*   Updated: 2026/02/10 15:22:13 by nbenhssi         ###   ########.fr       */
+/*   Updated: 2026/02/10 15:59:53 by nbenhssi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,21 @@ class Bureaucrat
 {
     private:
         std::string name;
-        int garde;
+        int grade;
     public:
         Bureaucrat();
-        Bureaucrat(Bureaucrat b);
+        Bureaucrat(const Bureaucrat &b);
+        Bureaucrat& operator=(const Bureaucrat& Bureaucrat);
+        ~Bureaucrat();
         void setName(std::string name);
         void setGrade(int grade);
         std::string getName();
         int getGrade();
+        void incGrade(Bureaucrat& bureaucrat);
+        void decGrade(Bureaucrat& bureaucrat);
+
 };
+
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& B);
 
 #endif
