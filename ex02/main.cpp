@@ -6,12 +6,13 @@
 /*   By: nbenhssi <nbenhssi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 15:22:40 by nbenhssi          #+#    #+#             */
-/*   Updated: 2026/03/05 21:57:22 by nbenhssi         ###   ########.fr       */
+/*   Updated: 2026/03/03 15:09:27 by nbenhssi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "Bureaucrat.hpp"
+
 
 int main()
 {
@@ -19,7 +20,7 @@ int main()
 	{
 		Bureaucrat A1("A1", 200);
 	}
-	catch(std::exception &e)
+	catch(const std::exception &e)
 	{
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
@@ -27,7 +28,7 @@ int main()
 	{
 		Bureaucrat A2("A2", -10);
 	}
-	catch(std::exception &e)
+	catch(const std::exception &e)
 	{
 
 		std::cerr << "Exception caught: " << e.what() << std::endl;
@@ -36,7 +37,7 @@ int main()
 	{
 		Bureaucrat A2("A2", 20);
 	}
-	catch(std::exception &e)
+	catch(const std::exception &e)
 	{
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
