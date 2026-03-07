@@ -26,7 +26,7 @@ int main()
         Bureaucrat alice("Alice", 130);
         ShrubberyCreationForm f("garden");
         alice.signForm(f);
-        alice.executeForm(f); // cree garden_shrubbery
+        alice.executeForm(f);
     }
 
     // --- RobotomyRequestForm ---
@@ -36,7 +36,7 @@ int main()
         RobotomyRequestForm f("Bender");
         bob.signForm(f);
         bob.executeForm(f);
-        bob.executeForm(f); // deux fois pour voir le 50/50
+        bob.executeForm(f);
     }
 
     // --- PresidentialPardonForm ---
@@ -53,8 +53,8 @@ int main()
     {
         Bureaucrat weakling("Weakling", 150);
         RobotomyRequestForm f("R2D2");
-        weakling.signForm(f);   // grade trop bas pour signer
-        weakling.executeForm(f); // non signe -> echec
+        weakling.signForm(f);
+        weakling.executeForm(f);
     }
 
     return 0;

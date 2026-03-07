@@ -6,7 +6,7 @@
 /*   By: nbenhssi <nbenhssi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 15:16:26 by nbenhssi          #+#    #+#             */
-/*   Updated: 2026/03/02 14:17:32 by nbenhssi         ###   ########.fr       */
+/*   Updated: 2026/03/07 19:57:34 by nbenhssi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ class Bureaucrat
             public:
                 virtual const char* what() const throw();
         };
-
 };
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& B);
