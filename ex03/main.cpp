@@ -1,47 +1,43 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nbenhssi <nbenhssi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/07 13:48:55 by nbenhssi          #+#    #+#             */
+/*   Updated: 2026/03/07 13:48:55 by nbenhssi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "Intern.hpp"
+#include <cstdlib>
 
 int main()
 {
-    // Test 1 : signature réussie
-    try
-    {
-        Bureaucrat b("Alice", 1);
-        Form f("TaxForm", 10, 50);
-        std::cout << b << std::endl;
-        std::cout << f << std::endl;
-        b.signForm(f);
-        std::cout << f << std::endl;
-    }
-    catch (const std::exception& e)
-    {
-        std::cerr << "Exception: " << e.what() << std::endl;
-    }
+    std::srand(42);
 
-    std::cout << "---" << std::endl;
+    Intern intern;
+    AForm* f = NULL;
 
-    // Test 2 : grade trop bas pour signer
-    try
-    {
-        Bureaucrat b("Bob", 100);
-        Form f("SecretForm", 10, 50);
-        std::cout << b << std::endl;
-        b.signForm(f);
-    }
-    catch (const std::exception& e)
-    {
-        std::cerr << "Exception: " << e.what() << std::endl;
-    }
+    // --- Formulaires valides ---
+    std::cout << "--- Formulaires valides ---" << std::endl;
 
-    std::cout << "---" << std::endl;
+    f = intern.makeForm("shrubbery creation", "garden");
+    if (f) { Bureaucrat b("Bob", 1); b.signForm(*f); b.executeForm(*f); delete f; }
 
-    // Test 3 : grade invalide pour le formulaire
-    try
-    {
-        Form f("BadForm", 0, 50);
-    }
-    catch (const std::exception& e)
-    {
-        std::cerr << "Exception: " << e.what() << std::endl;
-    }
+    f = intern.makeForm("robotomy request", "Bender");
+    if (f) { Bureaucrat b("Bob", 1); b.signForm(*f); b.executeForm(*f); delete f; }
+
+    f = intern.makeForm("presidential pardon", "Arthur Dent");
+    if (f) { Bureaucrat b("Bob", 1); b.signForm(*f); b.executeForm(*f); delete f; }
+
+    // --- Nom inconnu ---
+    std::cout << "\n--- Nom inconnu ---" << std::endl;
+    f = intern.makeForm("coffee request", "Bender");
+    if (!f)
+        std::cout << "Aucun formulaire cree" << std::endl;
+
+    return 0;
 }

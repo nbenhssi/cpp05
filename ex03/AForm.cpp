@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nbenhssi <nbenhssi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/07 13:48:31 by nbenhssi          #+#    #+#             */
+/*   Updated: 2026/03/07 13:48:31 by nbenhssi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
@@ -20,7 +32,7 @@ AForm &AForm::operator=(const AForm &f)
 
 AForm::AForm(const AForm&b): name(b.name), is_signed(b.is_signed), gradeSign(b.gradeSign), gradeExecute(b.gradeExecute)
 {}
-virtual AForm::~AForm(){}
+AForm::~AForm(){}
 
 
 const char * AForm::GradeTooHighException::what() const throw()
