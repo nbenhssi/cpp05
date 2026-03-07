@@ -39,5 +39,10 @@ int main()
     if (!f)
         std::cout << "Aucun formulaire cree" << std::endl;
 
+    // {
+    //     Intern someRandomIntern;
+    //     AForm* rrf;
+    //     rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+    // }
     return 0;
 }

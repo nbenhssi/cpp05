@@ -35,7 +35,39 @@ Intern::~Intern()
 {
 }
 
-AForm* Intern::makeForm(const std::string& formName, const std::string& target) const
+AForm *Intern::createShrubbery(const std::string& target)
 {
-    
+    return new ShrubberyCreationForm(target);
+}
+
+AForm* Intern::createRobotomy(const std::string& target)
+{
+    return new RobotomyRequestForm(target);
+}
+
+AForm* Intern::createPresidential(const std::string& target)
+{
+    return new PresidentialPardonForm(target);
+}
+
+
+AForm* Intern::makeForm(const std::string& formName, const std::string& target) 
+{
+    std::string str[] = {"robotomy request", "shrubbery creation", "presidential pardon" };
+    AForm* (Intern::*funcs[3])(const std::string&) = {
+        &Intern::createShrubbery,
+        &Intern::createRobotomy,
+        &Intern::createPresidential
+    };
+
+    for(int i = 0; i<3; i++)
+    {
+        if(str[i] == formName)
+        {
+            std::cout << "Intern creates " << formName << std::endl;
+            return (this->*funcs[i])(target);
+        }
+    }
+    std::cout << "Error: form " << formName << " not found" << std::endl;
+    return NULL;
 }
