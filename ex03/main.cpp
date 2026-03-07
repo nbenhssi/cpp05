@@ -25,13 +25,31 @@ int main()
     std::cout << "--- Formulaires valides ---" << std::endl;
 
     f = intern.makeForm("shrubbery creation", "garden");
-    if (f) { Bureaucrat b("Bob", 1); b.signForm(*f); b.executeForm(*f); delete f; }
+    if (f)
+    { 
+        Bureaucrat b("Bob", 1); 
+        b.signForm(*f); 
+        b.executeForm(*f); 
+        delete f;
+     }
 
     f = intern.makeForm("robotomy request", "Bender");
-    if (f) { Bureaucrat b("Bob", 1); b.signForm(*f); b.executeForm(*f); delete f; }
+    if (f)
+    { 
+        Bureaucrat b("Bob", 1);
+        b.signForm(*f);
+        b.executeForm(*f);
+        delete f;
+    }
 
     f = intern.makeForm("presidential pardon", "Arthur Dent");
-    if (f) { Bureaucrat b("Bob", 1); b.signForm(*f); b.executeForm(*f); delete f; }
+    if (f)
+    {
+        Bureaucrat b("Bob", 1);
+        b.signForm(*f);
+        b.executeForm(*f);
+        delete f;
+    }
 
     // --- Nom inconnu ---
     std::cout << "\n--- Nom inconnu ---" << std::endl;
@@ -39,10 +57,5 @@ int main()
     if (!f)
         std::cout << "Aucun formulaire cree" << std::endl;
 
-    // {
-    //     Intern someRandomIntern;
-    //     AForm* rrf;
-    //     rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-    // }
     return 0;
 }
